@@ -1,7 +1,7 @@
 <script setup>
 import TheWelcome from '../components/TheWelcome.vue'
 import { onBeforeMount } from 'vue'
-import { api } from '../service/api.js'
+import { api } from '../utils/api'
 
 onBeforeMount(async () => {
   const { token, refreshToken } = await api.login()
