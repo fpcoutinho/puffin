@@ -28,13 +28,23 @@ const handleEdit = (index: number, row: object) => {
 const handleDelete = (index: number, row: object) => {
   console.log(index, row)
 }
+
+const dataFormatter = (row: { data: string }) => {
+  const dataFormatada = new Intl.DateTimeFormat('pt-BR', {
+    dateStyle: 'long',
+    timeStyle: 'short',
+    timeZone: 'America/Bahia'
+  }).format(new Date(row.data))
+
+  return dataFormatada
+}
 </script>
 
 <template>
   <div class="about">
     <el-table :data="filterTableData" :default-sort="{ prop: 'data', order: 'descending' }" style="width: 100%">
       <el-table-column label="Local" prop="local" sortable />
-      <el-table-column label="Data" prop="data" sortable />
+      <el-table-column label="Data" prop="data" :formatter="dataFormatter" sortable />
       <el-table-column label="Responsáveis" prop="responsaveis" sortable />
       <el-table-column label="Clima" prop="clima" sortable />
       <el-table-column label="Temperatura" prop="temperatura" sortable />
