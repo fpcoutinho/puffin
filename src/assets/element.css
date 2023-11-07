@@ -1,0 +1,4 @@
+html.dark {
+  --el-bg-color: var(--color-background);
+  --el-color-success: #00bd7e;
+}
