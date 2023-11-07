@@ -1,21 +1,53 @@
 <script setup lang="ts">
-import { onBeforeMount } from 'vue'
+import { onBeforeMount, computed, ref } from 'vue'
 import { api } from '../utils/api'
 
+
+const tableData = ref()
 onBeforeMount(async () => {
   try {
     const response = await api.login()
-    localStorage.setItem('token', response?.token)
-    localStorage.setItem('refreshToken', response?.refreshToken)
+    const dados = await api.get('relatorios/', response?.token)
+    tableData.value = dados.results
   } catch (error) {
     console.log(error)
   }
 })
+
+const search = ref('')
+const filterTableData = computed(() =>
+  tableData.value.filter(
+    (data: { local: string }) =>
+      !search.value ||
+      data.local.toLowerCase().includes(search.value.toLowerCase())
+  )
+)
+const handleEdit = (index: number, row: object) => {
+  console.log(index, row)
+}
+const handleDelete = (index: number, row: object) => {
+  console.log(index, row)
+}
 </script>
 
 <template>
   <div class="about">
-    <h1>This is an about page</h1>
+    <el-table :data="filterTableData" :default-sort="{ prop: 'data', order: 'descending' }" style="width: 100%">
+      <el-table-column label="Local" prop="local" sortable />
+      <el-table-column label="Data" prop="data" sortable />
+      <el-table-column label="Responsáveis" prop="responsaveis" sortable />
+      <el-table-column label="Clima" prop="clima" sortable />
+      <el-table-column label="Temperatura" prop="temperatura" sortable />
+      <el-table-column align="right">
+        <template #header>
+          <el-input v-model="search" size="small" placeholder="Type to search" />
+        </template>
+        <template #default="scope">
+          <el-button size="small" @click="handleEdit(scope.$index, scope.row)">Edit</el-button>
+          <el-button size="small" type="danger" @click="handleDelete(scope.$index, scope.row)">Delete</el-button>
+        </template>
+      </el-table-column>
+    </el-table>
   </div>
 </template>
 
