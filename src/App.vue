@@ -1,4 +1,4 @@
-<script setup>
+<script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router'
 import HelloWorld from './components/HelloWorld.vue'
 </script>
@@ -17,7 +17,11 @@ import HelloWorld from './components/HelloWorld.vue'
     </div>
   </header>
 
-  <RouterView />
+  <RouterView v-slot="{ Component }">
+    <Transition name="slide-fade" mode="out-in">
+      <component :is="Component" />
+    </Transition>
+  </RouterView>
 </template>
 
 <style scoped>

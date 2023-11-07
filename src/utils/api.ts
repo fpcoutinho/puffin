@@ -20,13 +20,13 @@ export const api = {
     }
   },
 
-  getRelatorios: async (token) => {
+  get: async (path: string, token: string) => {
     try{
-      const response = await axios.get(url + 'api/relatorios/', {
-      headers: {
-        'Authorization': `Bearer ${token}`
-      }
-    })
+      const response = await axios.get(url + 'api/' + path, {
+        headers: {
+          'Authorization': `Bearer ${token}`
+        }
+      })
       return response.data
     } catch (error) {
       console.log(error)
