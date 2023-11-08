@@ -1,9 +1,4 @@
 {
-  "compilerOptions": {
-    "forceConsistentCasingInFileNames": true,
-    "strict": true,
-    "types": ["element-plus/global"]
-  },
   "files": [],
   "references": [
     {
