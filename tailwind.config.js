@@ -34,7 +34,20 @@ module.exports = {
             "error": "#D15123",
           },
         },
-        "lemonade",
+        {
+          sunrise: {
+            "primary": "#1E4950",
+            "secondary": "#DEB88D",
+            "accent": "#027C9B",
+            "neutral": "#17384C",
+            "base-100": "#FFFFFF",
+            "base-content": "#17384C",
+            "info": "#68D4F1",
+            "success": "#36d399",
+            "warning": "#FCA02F",
+            "error": "#D15123",
+          },
+        },
       ],
   }
 }
