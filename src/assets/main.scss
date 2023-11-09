@@ -1,1 +1,28 @@
 @import './base.scss';
+@import './material.scss';
+
+body {
+  width: fit-content;
+  height: fit-content;
+}
+
+#app {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-height: 100vh;
+
+  @apply py-3 px-8;
+
+  @screen lg {
+    @apply px-20;
+  }
+
+  @screen xl {
+    @apply px-60;
+  }
+}
+
+main {
+  @apply p-4;
+}

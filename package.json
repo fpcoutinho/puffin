@@ -12,6 +12,14 @@
     "format": "prettier --write src/"
   },
   "dependencies": {
+    "@fontsource-variable/lora": "^5.0.9",
+    "@fontsource-variable/merriweather-sans": "^5.0.9",
+    "@fontsource-variable/montserrat": "^5.0.16",
+    "@fontsource/julius-sans-one": "^5.0.17",
+    "@fontsource/la-belle-aurore": "^5.0.17",
+    "@fontsource/libre-baskerville": "^5.0.8",
+    "@fontsource/material-symbols-outlined": "^5.0.16",
+    "@fontsource/yellowtail": "^5.0.17",
     "axios": "^1.6.1",
     "sass": "^1.69.5",
     "theme-change": "^2.5.0",

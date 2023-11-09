@@ -1,18 +1,25 @@
+@import '@fontsource/julius-sans-one';
+@import '@fontsource/yellowtail';
+@import '@fontsource/la-belle-aurore';
+@import '@fontsource/libre-baskerville';
+@import '@fontsource-variable/merriweather-sans';
+@import '@fontsource-variable/montserrat';
+@import '@fontsource-variable/lora';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
 
-body {
-  min-height: 100vh;
-  min-width: 100vw;
-
-  @apply p-3;
-
-  @screen lg {
-    @apply px-20;
+@layer base {
+  header {
+    @apply font-merriweather-sans font-light;
   }
 
-  @screen xl {
-    @apply px-60;
+  main {
+    @apply font-montserrat;
+  }
+
+  footer {
+    @apply font-merriweather-sans font-light;
   }
 }

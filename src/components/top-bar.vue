@@ -6,10 +6,12 @@
       <div class="navbar bg-neutral shadow-lg rounded-3xl p-3">
         <div class="flex-none sm:hidden">
           <label for="my-drawer-3" aria-label="open sidebar" class="btn btn-square btn-ghost">
-            <i class="fa-solid fa-bars fa-xl"></i>
+            <span class="material-symbols-outlined">
+              menu
+            </span>
           </label>
         </div>
-        <div class="flex-1">
+        <div class="flex flex-1 gap-4">
           <router-link to="#" class="btn btn-ghost btn-circle normal-case text-xl">
             <img src="@\assets\icons\tucano.png" alt="puffin icon">
           </router-link>
@@ -19,8 +21,12 @@
             <li>
               <label class="swap swap-rotate w-9 h-9">
                 <input type="checkbox" data-toggle-theme="seashells,sunrise" data-act-class="ACTIVECLASS" />
-                <i class="fa-regular fa-moon fa-xl swap-on fill-current"></i>
-                <i class="fa-regular fa-sun fa-xl swap-off fill-current"></i>
+                <span class="material-symbols-outlined swap-on fill-current">
+                  light_mode
+                </span>
+                <span class="material-symbols-outlined swap-off fill-current">
+                  dark_mode
+                </span>
               </label>
             </li>
             <li class="hidden sm:block"><router-link to="#inicio">Início</router-link></li>
