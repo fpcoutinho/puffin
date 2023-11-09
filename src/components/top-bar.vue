@@ -1,53 +1,36 @@
 <template>
-  <div class="navbar bg-base-100 rounded-3xl">
+  <div class="navbar bg-base-100 shadow-lg rounded-3xl p-3">
     <div class="flex-1">
-      <a class="btn btn-ghost normal-case text-xl">daisyUI</a>
+      <router-link to="#" class="btn btn-ghost normal-case text-xl">daisyUI</router-link>
     </div>
     <div class="flex-none">
-      <div class="dropdown dropdown-end">
-        <label tabindex="0" class="btn btn-ghost btn-circle">
-          <div class="indicator">
-            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                d="M3 3h2l.4 2M7 13h10l4-8H5.4M7 13L5.4 5M7 13l-2.293 2.293c-.63.63-.184 1.707.707 1.707H17m0 0a2 2 0 100 4 2 2 0 000-4zm-8 2a2 2 0 11-4 0 2 2 0 014 0z" />
-            </svg>
-            <span class="badge badge-sm indicator-item">8</span>
-          </div>
-        </label>
-        <div tabindex="0" class="mt-3 z-[1] card card-compact dropdown-content w-52 bg-base-100 shadow">
-          <div class="card-body">
-            <span class="font-bold text-lg">8 Items</span>
-            <span class="text-info">Subtotal: $999</span>
-            <div class="card-actions">
-              <button class="btn btn-primary btn-block">View cart</button>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="dropdown dropdown-end">
-        <label tabindex="0" class="btn btn-ghost btn-circle avatar">
-          <div class="w-10 rounded-full">
-            <img src="/images/stock/photo-1534528741775-53994a69daeb.jpg" />
-          </div>
-        </label>
-        <ul tabindex="0" class="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
-          <li>
-            <router-link to="" class="justify-between">
-              Profile
-            </router-link>
-          </li>
-          <li><router-link to="">Settings</router-link></li>
-          <li><router-link to="">Logout</router-link></li>
-        </ul>
-      </div>
+      <ul class="menu menu-horizontal px-1 gap-3">
+        <li>
+          <label class="swap swap-rotate w-9 h-9">
+            <input type="checkbox" data-toggle-theme="seashells,sunrise" data-act-class="ACTIVECLASS" />
+            <i class="fa-regular fa-moon fa-xl swap-on fill-current"></i>
+            <i class="fa-regular fa-sun fa-xl swap-off fill-current"></i>
+          </label>
+        </li>
+        <li><router-link to="#">Início</router-link></li>
+        <li><router-link to="#">Configurações</router-link></li>
+        <li><router-link to="#">Log out</router-link></li>
+      </ul>
     </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router';
+import { themeChange } from 'theme-change'
+import { onMounted } from 'vue';
+
+onMounted(() => {
+  themeChange(false);
+});
+
 </script>
 
-<style>
+<style lang="scss">
 @import '@/assets/component-styles/top-bar.scss';
 </style>

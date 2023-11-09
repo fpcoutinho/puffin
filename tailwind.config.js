@@ -21,6 +21,20 @@ module.exports = {
   daisyui: {
     themes: [
         {
+          seawaves: {
+            "primary": "#1E4962",
+            "secondary": "#DEB88D",
+            "accent": "#027C9B",
+            "neutral": "#17384C",
+            "base-100": "#F2F2F2",
+            "base-content": "#1E4950",
+            "info": "#68D4F1",
+            "success": "#36d399",
+            "warning": "#FCA02F",
+            "error": "#D15123",
+          },
+        },
+        {
           seashells: {
             "primary": "#1E4962",
             "secondary": "#DEB88D",
@@ -33,8 +47,7 @@ module.exports = {
             "warning": "#FCA02F",
             "error": "#D15123",
           },
-        },
-        "autumn"
+        }
       ],
   }
 }

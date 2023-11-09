@@ -33,8 +33,8 @@ const dataFormatter = (row: { data: string }) => {
 }
 </script>
 
-<template>
-  <Transition name="slide-fade" mode="out-in">
-    table
-  </Transition>
-</template>
+<template></template>
+
+<style lang="scss">
+@import '@/assets/component-styles/table-data.scss';
+</style>

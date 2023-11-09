@@ -1,16 +1,1 @@
 @import './base.scss';
-
-body {
-  min-height: 100vh;
-  min-width: 100vw;
-
-  @apply py-5;
-
-  @screen lg {
-    @apply px-20;
-  }
-
-  @screen xl {
-    @apply px-60;
-  }
-}
