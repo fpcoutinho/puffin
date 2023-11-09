@@ -6,7 +6,7 @@ module.exports = {
   ],
   theme: {
     screens: {
-      sm: '480px',
+      sm: '640px',
       md: '976px',
       lg: '1440px',
       xl: '1886px',
@@ -25,7 +25,7 @@ module.exports = {
             "primary": "#1E4962",
             "secondary": "#DEB88D",
             "accent": "#027C9B",
-            "neutral": "#17384C",
+            "neutral": "#f1f5f9",
             "base-100": "#F2F2F2",
             "base-content": "#1E4950",
             "info": "#68D4F1",
