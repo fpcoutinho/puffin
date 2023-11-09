@@ -35,7 +35,7 @@
       Error
     </button>
 
-    <div data-theme="sunrise">
+    <div data-theme="autumn">
       <button class="btn">
         Default
       </button>
