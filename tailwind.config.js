@@ -7,9 +7,9 @@ module.exports = {
   theme: {
     screens: {
       sm: '480px',
-      md: '768px',
-      lg: '976px',
-      xl: '1440px',
+      md: '976px',
+      lg: '1440px',
+      xl: '1886px',
     },
     fontFamily: {
       sans: ['Graphik', 'sans-serif'],
