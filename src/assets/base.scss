@@ -5,6 +5,7 @@
 @import '@fontsource-variable/merriweather-sans';
 @import '@fontsource-variable/montserrat';
 @import '@fontsource-variable/lora';
+@import '@fontsource-variable/open-sans';
 
 @tailwind base;
 @tailwind components;
@@ -16,10 +17,10 @@
   }
 
   main {
-    @apply font-montserrat;
+    @apply font-open-sans;
   }
 
   footer {
-    @apply font-merriweather-sans font-light;
+    @apply font-montserrat font-light;
   }
 }

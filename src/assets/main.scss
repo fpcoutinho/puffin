@@ -2,16 +2,6 @@
 @import './material.scss';
 
 body {
-  width: fit-content;
-  height: fit-content;
-}
-
-#app {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  min-height: 100vh;
-
   @apply pt-3 px-8;
 
   @screen lg {
@@ -21,6 +11,10 @@ body {
   @screen xl {
     @apply px-60;
   }
+}
+
+#app {
+  @apply flex flex-col justify-between min-h-screen;
 }
 
 main {

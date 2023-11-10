@@ -19,6 +19,7 @@ module.exports = {
       'lora': ['Lora Variable', 'sans-serif'],
       'montserrat': ['Montserrat Variable', 'sans-serif'],
       'merriweather-sans': ['Merriweather Sans Variable', 'sans-serif'],
+      'open-sans': ['Open Sans Variable', 'sans-serif'],
     },
     extend: {},
   },

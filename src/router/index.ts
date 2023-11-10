@@ -12,7 +12,12 @@ const router = createRouter({
       path: '/relatorios/',
       name: 'relatorios',
       component: () => import('../views/relatorios-view.vue')
-    }
+    },
+    {
+      path: '/settings/',
+      name: 'settings',
+      component: () => import('../views/settings-view.vue')
+    },
   ]
 })
 

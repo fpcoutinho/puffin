@@ -7,8 +7,8 @@ const loading = ref(true)
 
 onBeforeMount(async () => {
   const response = await api.login()
-  const dados = await api.get('relatorios/', response?.token)
-  tableData.value = dados.results
+  const dados = await api.get('relatorios/', response?.token, response?.refreshToken)
+  tableData.value = dados?.data.results
   loading.value = false
 })
 
