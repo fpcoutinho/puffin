@@ -9,6 +9,7 @@ const url = import.meta.env.VITE_API_ROOT
 const refreshToken = async (token: string) => {
   try {
     const response = await axios.post(url + 'auth/refresh/', { refresh: token })
+    document.cookie = `access_token=${response.data.access};max-age=3600;`
     return response.data.access
   } catch (error) {
     console.log(error)
@@ -30,12 +31,11 @@ export const api = {
     try {
       // no futuro receber pelo form
       const response = await axios.post(url + 'auth/login/', credentials)
-      const token = response.data.access
-      const refreshToken = response.data.refresh
-
-      // guarda nos cookies
-
-      return { token, refreshToken }
+      const { access, refresh } = response.data
+      // colocar no cookie
+      document.cookie = `access_token=${access};max-age=3600; Secure`
+      document.cookie = `refresh_token=${refresh};max-age=604800; Secure`
+      return new Response('Log in successful!', { status: 200, statusText: 'Log in successful!' })
     } catch (error) {
       console.log(error)
     }
@@ -47,7 +47,6 @@ export const api = {
         return true
       } else {
         if (await checkToken(refresh)) {
-          // recebe novo token e muda ele nos cookies
           return true
         }
       }
@@ -58,21 +57,22 @@ export const api = {
     }
   },
 
-  get: async (path: string, access: string, refresh: string) => {
+  get: async (path: string) => {
     try {
-      let token = access
-      if (!(await checkToken(access))) {
-        if (await checkToken(refresh)) {
-          token = await refreshToken(refresh)
+      const cookies = document.cookie.split('; ')
+      let access = cookies.find(row => row.startsWith('access_token'))?.split('=')[1]
+      const refresh = cookies.find(row => row.startsWith('refresh_token'))?.split('=')[1]
+      if (access && !(await checkToken(access))) {
+        if (refresh && (await checkToken(refresh))) {
+          access = await refreshToken(refresh)
         }
       }
 
       const response = await axios.get(url + 'api/' + path, {
         headers: {
-          'Authorization': `Bearer ${token}`
+          'Authorization': `Bearer ${access}`
         }
       })
-
       return response
     } catch (error) {
       console.log(error)
