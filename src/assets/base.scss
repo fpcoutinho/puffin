@@ -1,0 +1,26 @@
+@import '@fontsource/julius-sans-one';
+@import '@fontsource/yellowtail';
+@import '@fontsource/la-belle-aurore';
+@import '@fontsource/libre-baskerville';
+@import '@fontsource-variable/merriweather-sans';
+@import '@fontsource-variable/montserrat';
+@import '@fontsource-variable/lora';
+@import '@fontsource-variable/open-sans';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  header {
+    @apply font-merriweather-sans font-light;
+  }
+
+  main {
+    @apply font-open-sans;
+  }
+
+  footer {
+    @apply font-montserrat font-light;
+  }
+}
