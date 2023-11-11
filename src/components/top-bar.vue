@@ -29,9 +29,10 @@
                 </span>
               </label>
             </li>
-            <li class="hidden sm:block"><router-link to="/relatorios/">Início</router-link></li>
+            <li class="hidden sm:block"><router-link to="/">Início</router-link></li>
+            <li class="hidden sm:block"><router-link to="/relatorios/">Relatórios</router-link></li>
             <li class="hidden sm:block"><router-link to="/settings/">Configurações</router-link></li>
-            <li class="hidden sm:block"><router-link to="#logout">Log out</router-link></li>
+            <li class="hidden sm:block"><button>Log out</button></li>
           </ul>
         </div>
       </div>
@@ -39,9 +40,10 @@
     <div class="drawer-side">
       <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
       <ul class="menu p-4 w-60 min-h-full bg-base-200">
-        <li><router-link to="/relatorios/">Início</router-link></li>
+        <li><router-link to="/">Início</router-link></li>
+        <li><router-link to="/relatorios/">Relatórios</router-link></li>
         <li><router-link to="/settings/">Configurações</router-link></li>
-        <li><router-link to="#logout">Log out</router-link></li>
+        <li><button>Log out</button></li>
       </ul>
     </div>
   </div>
