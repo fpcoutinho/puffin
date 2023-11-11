@@ -13,6 +13,42 @@
     totam consectetur eaque. Reiciendis, beatae. Expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit.
     Adipisci hic aspernatur iusto, harum ipsum asperiores fugiat exercitationem incidunt officia voluptatum cumque
     sapiente, recusandae cupiditate? Iste tempore quam ipsa omnis laboriosam.</span>
+  <div class="divider">Nunito Sans</div>
+  <span class="font-nunito-sans">Accusamus, fugiat iusto, expedita officiis rerum
+    pariatur
+    eum aut
+    sed quia obcaecati, ea repellendus hic eos.accusamus, fugiat iusto, expedita officiis rerum
+    pariatur
+    eum aut
+    sed quia obcaecati, ea repellendus hic eos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
+    asperiores praesentium, iste excepturi qui provident sit consequatur maxime esse accusamus enim. Quae quod quaerat
+    totam consectetur eaque. Reiciendis, beatae. Expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Adipisci hic aspernatur iusto, harum ipsum asperiores fugiat exercitationem incidunt officia voluptatum cumque
+    sapiente, recusandae cupiditate? Iste tempore quam ipsa omnis laboriosam.</span>
+  <div class="divider">Nunito</div>
+  <span class="font-nunito">Accusamus, fugiat iusto, expedita officiis rerum
+    pariatur
+    eum aut
+    sed quia obcaecati, ea repellendus hic eos.accusamus, fugiat iusto, expedita officiis rerum
+    pariatur
+    eum aut
+    sed quia obcaecati, ea repellendus hic eos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
+    asperiores praesentium, iste excepturi qui provident sit consequatur maxime esse accusamus enim. Quae quod quaerat
+    totam consectetur eaque. Reiciendis, beatae. Expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Adipisci hic aspernatur iusto, harum ipsum asperiores fugiat exercitationem incidunt officia voluptatum cumque
+    sapiente, recusandae cupiditate? Iste tempore quam ipsa omnis laboriosam.</span>
+  <div class="divider">Blinker</div>
+  <span class="font-blinker">Accusamus, fugiat iusto, expedita officiis rerum
+    pariatur
+    eum aut
+    sed quia obcaecati, ea repellendus hic eos.accusamus, fugiat iusto, expedita officiis rerum
+    pariatur
+    eum aut
+    sed quia obcaecati, ea repellendus hic eos. Lorem ipsum dolor sit amet consectetur adipisicing elit. Alias
+    asperiores praesentium, iste excepturi qui provident sit consequatur maxime esse accusamus enim. Quae quod quaerat
+    totam consectetur eaque. Reiciendis, beatae. Expedita! Lorem ipsum dolor sit amet consectetur adipisicing elit.
+    Adipisci hic aspernatur iusto, harum ipsum asperiores fugiat exercitationem incidunt officia voluptatum cumque
+    sapiente, recusandae cupiditate? Iste tempore quam ipsa omnis laboriosam.</span>
   <div class="divider">Montserrat</div>
   <span class="font-montserrat">Accusamus, fugiat iusto, expedita officiis rerum
     pariatur
