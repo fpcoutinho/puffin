@@ -8,11 +8,15 @@ import { onBeforeMount } from 'vue';
 onBeforeMount(async () => {
   await api.login()
 })
+
+const logoutApi = async () => {
+  await api.logout()
+}
 </script>
 
 <template>
   <header>
-    <top-bar />
+    <top-bar @logout="logoutApi" />
   </header>
   <main>
     <router-view />

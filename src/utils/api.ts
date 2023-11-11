@@ -41,6 +41,10 @@ export const api = {
     }
   },
 
+  logout: async () => {
+    console.log('logout')
+  },
+
   checkIfLoggedIn: async (access: string, refresh: string) => {
     try {
       if (await checkToken(access)) {

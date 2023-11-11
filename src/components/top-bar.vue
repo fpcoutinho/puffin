@@ -11,9 +11,10 @@
             </span>
           </label>
         </div>
-        <div class="flex flex-1 gap-4">
-          <router-link to="#" class="btn btn-ghost btn-circle normal-case text-xl">
-            <img src="@\assets\icons\tucano.png" alt="puffin icon">
+        <div class="flex-1">
+          <router-link to="/" class="flex gap-3 items-center">
+            <img width="48" src="@\assets\icons\tucano.png" alt="puffin icon">
+            <span class="font-yellowtail text-4xl">Tucán</span>
           </router-link>
         </div>
         <div class="flex-none">
@@ -32,7 +33,7 @@
             <li class="hidden sm:block"><router-link class="nav-link" to="/">Início</router-link></li>
             <li class="hidden sm:block"><router-link class="nav-link" to="/relatorios/">Relatórios</router-link></li>
             <li class="hidden sm:block"><router-link class="nav-link" to="/settings/">Configurações</router-link></li>
-            <li class="hidden sm:block"><button>Log out</button></li>
+            <li class="hidden sm:block"><button @click="logout">Log out</button></li>
           </ul>
         </div>
       </div>
@@ -43,7 +44,7 @@
         <li><router-link to="/">Início</router-link></li>
         <li><router-link to="/relatorios/">Relatórios</router-link></li>
         <li><router-link to="/settings/">Configurações</router-link></li>
-        <li><button>Log out</button></li>
+        <li><button @click="logout">Log out</button></li>
       </ul>
     </div>
   </div>
@@ -57,6 +58,12 @@ import { onMounted } from 'vue'
 onMounted(() => {
   themeChange(false)
 })
+
+const emit = defineEmits(['logout'])
+
+function logout(event: Event) {
+  emit('logout', event)
+}
 
 </script>
 
