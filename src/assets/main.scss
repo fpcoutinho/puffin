@@ -7,7 +7,7 @@
 
 main,
 footer {
-  @apply px-8;
+  @apply px-6;
 
   @screen lg {
     @apply px-20;
@@ -19,7 +19,7 @@ footer {
 }
 
 header {
-  @apply pb-6;
+  @apply pb-6 mb-6;
 }
 
 footer {
