@@ -8,7 +8,7 @@ const url = import.meta.env.VITE_API_ROOT
 
 const refreshToken = async (token: string) => {
   try {
-    const response = await axios.post(url + 'auth/refresh/', { refresh: token })
+    const response = await axios.post(url + 'auth/login/refresh/', { refresh: token })
     document.cookie = `access_token=${response.data.access};max-age=3600;`
     return response.data.access
   } catch (error) {
