@@ -6,7 +6,11 @@ import { api } from '@/utils/api'
 import { onBeforeMount } from 'vue';
 
 onBeforeMount(async () => {
-  await api.login()
+  const loggedIn = await api.checkIfLoggedIn()
+  if (!loggedIn) {
+    //router.push({ name: 'login' })
+    await api.login()
+  }
 })
 
 const logoutApi = async () => {

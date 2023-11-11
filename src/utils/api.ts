@@ -9,7 +9,7 @@ const url = import.meta.env.VITE_API_ROOT
 const refreshToken = async (token: string) => {
   try {
     const response = await axios.post(url + 'auth/login/refresh/', { refresh: token })
-    document.cookie = `access_token=${response.data.access};max-age=3600;`
+    document.cookie = `access_token=${response.data.access};max-age=3600; Secure`
     return response.data.access
   } catch (error) {
     console.log(error)
@@ -42,15 +42,33 @@ export const api = {
   },
 
   logout: async () => {
-    console.log('logout')
+    try {
+      const cookies = document.cookie.split('; ')
+      const access = cookies.find(row => row.startsWith('access_token'))?.split('=')[1]
+      const refresh = cookies.find(row => row.startsWith('refresh_token'))?.split('=')[1]
+      if (access && refresh) {
+        await axios.post(url + 'auth/logout/', { headers: { 'Authorization': `Bearer ${access}` }, body: { 'refresh_token': refresh } })
+      }
+      document.cookie = "access_token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+      document.cookie = "refresh_token= ; expires = Thu, 01 Jan 1970 00:00:00 GMT"
+    } catch (error) {
+      console.log(error)
+    }
+
   },
 
-  checkIfLoggedIn: async (access: string, refresh: string) => {
+  checkIfLoggedIn: async () => {
     try {
-      if (await checkToken(access)) {
+      const cookies = document.cookie.split('; ')
+      const access = cookies.find(row => row.startsWith('access_token'))?.split('=')[1]
+      const refresh = cookies.find(row => row.startsWith('refresh_token'))?.split('=')[1]
+
+      if (access && await checkToken(access)) {
         return true
       } else {
-        if (await checkToken(refresh)) {
+        if (refresh && await checkToken(refresh)) {
+          const newAccess = await refreshToken(refresh)
+          document.cookie = `access_token=${newAccess};max-age=3600; Secure`
           return true
         }
       }
