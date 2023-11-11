@@ -1,3 +1,15 @@
-a.router-link-exact-active {
-  @apply font-extrabold;
+.navbar {
+  @apply px-8 py-4;
+
+  @screen lg {
+    @apply px-20;
+  }
+
+  @screen xl {
+    @apply px-60;
+  }
+
+  .menu .nav-link.router-link-exact-active {
+    @apply font-extrabold;
+  }
 }
