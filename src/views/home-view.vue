@@ -3,8 +3,8 @@
 </script>
 
 <template>
-  <div class="flex flex-col gap-4 items-center">
-    <h1 class="text-2xl font-semibold">HTML Ipsum Presents</h1>
+  <div class="max-w-none flex flex-col gap-4 items-center prose">
+    <h1>HTML Ipsum Presents</h1>
 
     <p><strong>Pellentesque habitant morbi tristique</strong> senectus et netus et malesuada fames ac turpis egestas.
       Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas
@@ -13,7 +13,7 @@
       Aenean fermentum, elit eget tincidunt condimentum, eros ipsum rutrum orci, sagittis tempus lacus enim ac dui. <a
         href="#">Donec non enim</a> in turpis pulvinar facilisis. Ut felis.</p>
 
-    <h2 class="text-xl font-semibold">Header Level 2</h2>
+    <h2>Header Level 2</h2>
 
     <ol>
       <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
@@ -26,7 +26,7 @@
         tellus, at luctus turpis elit sit amet quam. Vivamus pretium ornare est.</p>
     </blockquote>
 
-    <h3 class="text-lg font-semibold">Header Level 3</h3>
+    <h3>Header Level 3</h3>
 
     <ul>
       <li>Lorem ipsum dolor sit amet, consectetuer adipiscing elit.</li>
