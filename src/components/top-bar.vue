@@ -33,7 +33,7 @@
             <li class="hidden sm:block"><router-link class="nav-link" to="/">Início</router-link></li>
             <li class="hidden sm:block"><router-link class="nav-link" to="/relatorios/">Relatórios</router-link></li>
             <li class="hidden sm:block"><router-link class="nav-link" to="/settings/">Configurações</router-link></li>
-            <li class="hidden sm:block"><button @click="logout">Log out</button></li>
+            <li class="hidden sm:block"><button onclick="logout_modal.showModal()">Log out</button></li>
           </ul>
         </div>
       </div>
@@ -48,6 +48,21 @@
       </ul>
     </div>
   </div>
+  <dialog id="logout_modal" class="modal modal-bottom sm:modal-middle font-open-sans">
+    <div class="modal-box">
+      <h3 class="font-bold text-lg">Log out</h3>
+      <p class="py-4">Você tem certeza que deseja sair?</p>
+      <div class="modal-action">
+        <form class="flex gap-2" method="dialog">
+          <button class="btn btn-primary" @click="logout">Sair</button>
+          <button class="btn">Cancelar</button>
+        </form>
+      </div>
+    </div>
+    <form method="dialog" class="modal-backdrop">
+      <button>close</button>
+    </form>
+  </dialog>
 </template>
 
 <script setup lang="ts">

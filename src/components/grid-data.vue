@@ -1,0 +1,1 @@
+// Dados a serem exibidos em formato de grid com cards de tamanho fixo, porque a tabela fica ruim no mobile
