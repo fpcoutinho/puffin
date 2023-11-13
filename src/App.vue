@@ -1,26 +1,27 @@
 <script setup lang="ts">
 import { RouterView } from 'vue-router';
-import TopBar from '@/components/top-bar.vue'
+import TopNav from '@/components/top-nav.vue'
 import FooterNav from '@/components/footer-nav.vue'
 import { api } from '@/utils/api'
 import { onBeforeMount } from 'vue';
+import router from './router';
 
 onBeforeMount(async () => {
   const loggedIn = await api.checkIfLoggedIn()
   if (!loggedIn) {
-    //router.push({ name: 'login' })
-    await api.login()
+    router.push('/login')
   }
 })
 
 const logoutApi = async () => {
   await api.logout()
+  router.push('/login')
 }
 </script>
 
 <template>
   <header>
-    <top-bar @logout="logoutApi" />
+    <top-nav @logout="logoutApi" />
   </header>
   <main>
     <router-view />

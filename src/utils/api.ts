@@ -1,9 +1,5 @@
 import axios from 'axios'
 
-const credentials = {
-  username: import.meta.env.VITE_USERNAME,
-  password: import.meta.env.VITE_PASSWORD,
-}
 const url = import.meta.env.VITE_API_ROOT
 
 const refreshToken = async (token: string) => {
@@ -27,17 +23,18 @@ const checkToken = async (token: string) => {
 
 export const api = {
 
-  login: async () => {
+  login: async (usuario: string, senha: string) => {
     try {
-      // no futuro receber pelo form
-      const response = await axios.post(url + 'auth/login/', credentials)
+      const response = await axios.post(url + 'auth/login/', { username: usuario, password: senha })
       const { access, refresh } = response.data
-      // colocar no cookie
+
       document.cookie = `access_token=${access};max-age=3600;path=/;Secure`
       document.cookie = `refresh_token=${refresh};max-age=604800;path=/;Secure`
       return new Response('Log in successful!', { status: 200, statusText: 'Log in successful!' })
     } catch (error) {
-      console.log(error)
+      if (axios.isAxiosError(error)) {
+        return new Response(error.message, { status: error.response?.status, statusText: error.response?.data.detail })
+      }
     }
   },
 
