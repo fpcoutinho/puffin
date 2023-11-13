@@ -1,6 +1,7 @@
 <script async setup lang="ts">
 import { computed, ref, onBeforeMount } from 'vue'
-import { api } from '../utils/api'
+import { api } from '@/utils/api'
+import { format } from '@/utils/format'
 
 const tableData = ref()
 const loading = ref(true)
@@ -21,20 +22,10 @@ const filterTableData = computed(() => {
       data.local.toLowerCase().includes(search.value.toLowerCase())
   )
 })
-
-const dataFormatter = (data: string) => {
-  const dataFormatada = new Intl.DateTimeFormat('pt-BR', {
-    dateStyle: 'long',
-    timeStyle: 'short',
-    timeZone: 'America/Bahia'
-  }).format(new Date(data))
-
-  return dataFormatada
-}
 </script>
 
 <template>
-  <div class="overflow-x-auto">
+  <div class="overflow-x-auto mt-14">
     <table class="table">
       <!-- head -->
       <thead>
@@ -63,13 +54,13 @@ const dataFormatter = (data: string) => {
             {{ relatorio.local }}
           </td>
           <td>
-            {{ dataFormatter(relatorio.data) }}
+            {{ format.data(relatorio.data) }}
           </td>
           <td>{{ relatorio.responsaveis }}</td>
           <td>{{ relatorio.clima }}</td>
           <td>{{ relatorio.temperatura }}</td>
           <th>
-            <button class="btn btn-ghost btn-xs">details</button>
+            <router-link :to="'/relatorios/' + relatorio.id" class="btn btn-ghost btn-xs">details</router-link>
           </th>
         </tr>
       </tbody>
