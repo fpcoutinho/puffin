@@ -52,7 +52,23 @@ export const api = {
     } catch (error) {
       console.log(error)
     }
+  },
 
+  register: async (usuario: string, senha: string, confirma_senha: string, email: string, nome: string, sobrenome: string) => {
+    const user = {
+      username: usuario,
+      password: senha,
+      password2: confirma_senha,
+      email: email,
+      first_name: nome,
+      last_name: sobrenome
+    }
+    try {
+      const response = await axios.post(url + 'auth/register/', user)
+      return response
+    } catch (error) {
+      console.log(error)
+    }
   },
 
   checkIfLoggedIn: async () => {
