@@ -35,6 +35,8 @@ export const api = {
       if (axios.isAxiosError(error)) {
         return new Response(error.message, { status: error.response?.status, statusText: error.response?.data.detail })
       }
+      console.log('api helper error:\n')
+      console.log(error)
     }
   },
 
@@ -50,6 +52,7 @@ export const api = {
         return response
       }
     } catch (error) {
+      console.log('api helper error:\n')
       console.log(error)
     }
   },
@@ -67,6 +70,11 @@ export const api = {
       const response = await axios.post(url + 'auth/register/', user)
       return response
     } catch (error) {
+      if (axios.isAxiosError(error)) {
+        const data = error.response?.data
+        return new Object({ status: error.response?.status, data: data })
+      }
+      console.log('api helper error:\n')
       console.log(error)
     }
   },

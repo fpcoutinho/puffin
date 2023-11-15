@@ -1,15 +1,8 @@
 <template>
   <div class="flex justify-center">
-    <div v-show="formError !== ''" class="alert alert-error">
-      <svg xmlns="http://www.w3.org/2000/svg" class="stroke-current shrink-0 h-6 w-6" fill="none" viewBox="0 0 24 24">
-        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-          d="M10 14l2-2m0 0l2-2m-2 2l-2-2m2 2l2 2m7-2a9 9 0 11-18 0 9 9 0 0118 0z" />
-      </svg>
-      <span>{{ formError }}</span>
-    </div>
-    <form class="prose flex flex-col gap-5" @submit="register">
+    <form class="prose flex flex-col gap-2" @submit="register">
       <h2 class="text-primary text-center">Sign Up</h2>
-      <div class="flex flex-row gap-4">
+      <div class="flex flex-row gap-4 mb-2">
         <div class="form-control w-full">
           <label class="label">
             <span class="label-text font-bold">Nome</span>
@@ -30,12 +23,18 @@
         <input type="text" name="username" placeholder="Digite seu nome de usuário..."
           class="input input-bordered w-full" />
       </div>
+      <ul class="label-text-alt text-error m-0">
+        <li class="not-prose my-2 pl-1" v-for="error in errors.username" :key="error">{{ error }}</li>
+      </ul>
       <div class="form-control w-full">
         <label class="label">
           <span class="label-text font-bold">E-mail</span>
         </label>
         <input type="text" name="email" placeholder="Digite seu email..." class="input input-bordered w-full" />
       </div>
+      <ul class="label-text-alt text-error m-0">
+        <li class="not-prose my-2 pl-1" v-for="error in errors.email" :key="error">{{ error }}</li>
+      </ul>
       <div class="flex flex-row gap-4">
         <div class="form-control w-full">
           <label class="label">
@@ -52,9 +51,10 @@
             class="input input-bordered w-full" />
         </div>
       </div>
-      <div class="form-control w-full h-3 text-center text-error text-xs">
-        {{ passwordVerify }}
-      </div>
+      <ul class="label-text-alt text-error m-0">
+        <li class="not-prose my-2 pl-1" v-for="error in errors.password" :key="error">{{ error }}</li>
+      </ul>
+      <span class="label-text-alt text-error">{{ passwordVerify }} </span>
       <div class="form-control w-full">
         <button class="btn btn-primary" type="submit" :disabled="disabled">
           Registrar-se
@@ -72,7 +72,13 @@ import { ref, computed } from 'vue'
 import { api } from '@/utils/api';
 import router from '@/router';
 
-const formError = ref('')
+
+const errors = ref({
+  username: null,
+  email: null,
+  password: null
+})
+
 const senha = ref('')
 const senha2 = ref('')
 
@@ -96,7 +102,6 @@ const disabled = computed(() => {
 const register = async (e: Event) => {
   e.preventDefault()
   const form = e.target as HTMLFormElement
-  formError.value = ''
   const username = form.username.value
   const password = form.password.value
   const password2 = form.password2.value
@@ -106,11 +111,26 @@ const register = async (e: Event) => {
 
   try {
     const res = await api.register(username, password, password2, email, first_name, last_name) as any
-    if (res.status === 200) {
+
+    if (res.status === 201) {
       await api.login(username, password)
       router.push('/')
-    } else {
-      formError.value = res.statusText
+    } else if (res.status === 400) {
+      const keys = Object.keys(res.data)
+      keys.forEach((key,) => {
+        if (key === 'username') {
+          errors.value.username = res.data[key]
+        }
+        if (key === 'email') {
+          errors.value.email = res.data[key]
+        }
+        if (key === 'password') {
+          errors.value.password = res.data[key]
+        }
+      });
+    }
+    else {
+      console.log(res)
     }
   } catch (err) {
     console.log(err)
