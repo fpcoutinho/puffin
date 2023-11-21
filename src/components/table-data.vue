@@ -60,7 +60,7 @@ const filterTableData = computed(() => {
           <td>{{ relatorio.clima }}</td>
           <td>{{ relatorio.temperatura }}</td>
           <th>
-            <router-link :to="'/relatorios/' + relatorio.id" class="btn btn-ghost btn-xs">details</router-link>
+            <router-link :to="'/relatorios/' + relatorio.id" class="btn btn-ghost btn-xs">detalhes</router-link>
           </th>
         </tr>
       </tbody>

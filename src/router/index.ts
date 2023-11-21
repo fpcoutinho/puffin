@@ -1,4 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router'
+import { api } from '@/utils/api'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -40,6 +41,16 @@ const router = createRouter({
       component: () => import('../views/error-view.vue')
     },
   ]
+})
+
+router.beforeEach(async (to) => {
+  if (
+    !api.checkIfLoggedIn &&
+    (to.name !== 'login' && to.name !== 'register')
+  ) {
+    // redirect the user to the login page
+    return { name: 'login' }
+  }
 })
 
 export default router
