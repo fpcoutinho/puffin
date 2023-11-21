@@ -21,12 +21,13 @@
           <ul v-if="props.userLoggedIn" class="menu menu-horizontal px-1 gap-3">
             <li>
               <label class="swap swap-rotate w-9 h-9" title="Trocar Tema" aria-label="Trocar Tema">
-                <input type="checkbox" class="theme-controller" value="seawaves" />
+                <input type="checkbox" :checked="isDark" @change="toggleTheme" class="theme-controller"
+                  value="seashells" />
                 <span class="material-symbols-outlined swap-on fill-current">
-                  light_mode
+                  dark_mode
                 </span>
                 <span class="material-symbols-outlined swap-off fill-current">
-                  dark_mode
+                  light_mode
                 </span>
               </label>
             </li>
@@ -38,12 +39,13 @@
           <ul v-else class="menu menu-horizontal px-1 gap-3">
             <li>
               <label class="swap swap-rotate w-9 h-9" title="Trocar Tema" aria-label="Trocar Tema">
-                <input type="checkbox" class="theme-controller" value="seawaves" />
+                <input type="checkbox" :checked="isDark" @change="toggleTheme" class="theme-controller"
+                  value="seashells" />
                 <span class="material-symbols-outlined swap-on fill-current">
-                  light_mode
+                  dark_mode
                 </span>
                 <span class="material-symbols-outlined swap-off fill-current">
-                  dark_mode
+                  light_mode
                 </span>
               </label>
             </li>
@@ -87,7 +89,7 @@
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
 import { themeChange } from 'theme-change'
-import { onMounted } from 'vue'
+import { onMounted, ref } from 'vue'
 
 const props = defineProps({
   userLoggedIn: Boolean
@@ -101,6 +103,17 @@ const emit = defineEmits(['logout'])
 
 function logout(event: Event) {
   emit('logout', event)
+}
+
+const isDark = ref(localStorage.getItem('theme') === 'dark')
+
+const toggleTheme = () => {
+  if (isDark.value) {
+    localStorage.setItem('theme', 'light')
+  } else {
+    localStorage.setItem('theme', 'dark')
+  }
+  themeChange()
 }
 
 </script>
