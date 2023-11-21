@@ -72,6 +72,7 @@ import { ref, computed } from 'vue'
 import { api } from '@/utils/api';
 import router from '@/router';
 
+const emit = defineEmits(['login'])
 
 const errors = ref({
   username: null,
@@ -114,6 +115,7 @@ const register = async (e: Event) => {
 
     if (res.status === 201) {
       await api.login(username, password)
+      emit('login', { ...res.data, username: username })
       router.push('/')
     } else if (res.status === 400) {
       const keys = Object.keys(res.data)

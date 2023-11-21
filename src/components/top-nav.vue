@@ -18,10 +18,10 @@
           </router-link>
         </div>
         <div class="flex-none">
-          <ul class="menu menu-horizontal px-1 gap-3">
+          <ul v-if="props.userLoggedIn" class="menu menu-horizontal px-1 gap-3">
             <li>
               <label class="swap swap-rotate w-9 h-9" title="Trocar Tema" aria-label="Trocar Tema">
-                <input type="checkbox" data-toggle-theme="seashells,sunrise" data-act-class="ACTIVECLASS" />
+                <input type="checkbox" class="theme-controller" value="seawaves" />
                 <span class="material-symbols-outlined swap-on fill-current">
                   light_mode
                 </span>
@@ -35,16 +35,35 @@
             <li class="hidden sm:block"><router-link class="nav-link" to="/settings/">Configurações</router-link></li>
             <li class="hidden sm:block"><button onclick="logout_modal.showModal()">Log out</button></li>
           </ul>
+          <ul v-else class="menu menu-horizontal px-1 gap-3">
+            <li>
+              <label class="swap swap-rotate w-9 h-9" title="Trocar Tema" aria-label="Trocar Tema">
+                <input type="checkbox" class="theme-controller" value="seawaves" />
+                <span class="material-symbols-outlined swap-on fill-current">
+                  light_mode
+                </span>
+                <span class="material-symbols-outlined swap-off fill-current">
+                  dark_mode
+                </span>
+              </label>
+            </li>
+            <li class="hidden sm:block"><router-link class="nav-link" to="/login/">Log in</router-link></li>
+            <li class="hidden sm:block"><router-link class="nav-link" to="/register/">Sign up</router-link></li>
+          </ul>
         </div>
       </div>
     </div>
     <div class="drawer-side">
       <label for="my-drawer-3" aria-label="close sidebar" class="drawer-overlay"></label>
-      <ul class="menu p-4 w-60 min-h-full bg-base-200">
+      <ul v-if="props.userLoggedIn" class="menu p-4 w-60 min-h-full bg-base-200">
         <li><router-link to="/">Início</router-link></li>
         <li><router-link to="/relatorios/">Relatórios</router-link></li>
         <li><router-link to="/settings/">Configurações</router-link></li>
         <li><button @click="logout">Log out</button></li>
+      </ul>
+      <ul v-else class="menu p-4 w-60 min-h-full bg-base-200">
+        <li><router-link to="/login">Log in</router-link></li>
+        <li><router-link to="/register/">Sign up</router-link></li>
       </ul>
     </div>
   </div>
@@ -69,6 +88,10 @@
 import { RouterLink } from 'vue-router'
 import { themeChange } from 'theme-change'
 import { onMounted } from 'vue'
+
+const props = defineProps({
+  userLoggedIn: Boolean
+})
 
 onMounted(() => {
   themeChange(false)

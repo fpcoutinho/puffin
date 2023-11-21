@@ -20,7 +20,6 @@
     "@fontsource/yellowtail": "^5.0.17",
     "axios": "^1.6.1",
     "sass": "^1.69.5",
-    "theme-change": "^2.5.0",
     "vue": "^3.3.4",
     "vue-router": "^4.2.5"
   },
@@ -34,7 +33,7 @@
     "@vue/eslint-config-typescript": "^12.0.0",
     "@vue/tsconfig": "^0.4.0",
     "autoprefixer": "^10.4.16",
-    "daisyui": "^4.0.1",
+    "daisyui": "^4.4.2",
     "eslint": "^8.49.0",
     "eslint-plugin-vue": "^9.17.0",
     "npm-run-all2": "^6.1.1",

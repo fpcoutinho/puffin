@@ -34,6 +34,8 @@ import { ref } from 'vue'
 import { api } from '@/utils/api';
 import router from '@/router';
 
+const emit = defineEmits(['login'])
+
 const formError = ref('')
 
 const login = async (e: Event) => {
@@ -46,6 +48,7 @@ const login = async (e: Event) => {
   try {
     const res = await api.login(username, password) as any
     if (res.status === 200) {
+      emit('login', { ...res.data, username: username })
       router.push('/')
     } else {
       formError.value = res.statusText
