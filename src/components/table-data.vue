@@ -47,7 +47,7 @@ const filterTableData = computed(() => {
         <tr v-for="(relatorio, index) in filterTableData" :key="index" class="hover">
           <th>
             <label>
-              <input type="checkbox" class="checkbox" />
+              <input type="checkbox" class="checkbox" :value="relatorio.id" :title="'relatorio ' + relatorio.id" />
             </label>
           </th>
           <td>

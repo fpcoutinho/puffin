@@ -88,15 +88,10 @@
 
 <script setup lang="ts">
 import { RouterLink } from 'vue-router'
-import { themeChange } from 'theme-change'
-import { onMounted, ref } from 'vue'
+import { ref } from 'vue'
 
 const props = defineProps({
   userLoggedIn: Boolean
-})
-
-onMounted(() => {
-  themeChange(false)
 })
 
 const emit = defineEmits(['logout'])
@@ -113,7 +108,6 @@ const toggleTheme = () => {
   } else {
     localStorage.setItem('theme', 'dark')
   }
-  themeChange()
 }
 
 </script>
